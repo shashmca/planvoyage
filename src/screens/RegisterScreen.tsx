@@ -191,10 +191,10 @@ const styles = StyleSheet.create({
     maxWidth: 420
   },
   image: {
-    width: 20,
-    height: 25,
+    width: 15,
+    height: 15,
     position: 'absolute',
-    top: 30,
+    top: 35,
     left: 15,
     zIndex: 2
   }

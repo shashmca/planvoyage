@@ -7,12 +7,12 @@ type Props = React.ComponentProps<typeof Input> & { errorText?: string };
 
 const TextInput = ({ errorText, ...props }: Props) => (
   <View style={styles.container}>
-    {/* <Image style={styles.image} source={require('../assets/user.png')} /> */}
+    <Image style={styles.image} source={require('../assets/user.png')} />
     <Input
       style={styles.input}
-      selectionColor={theme.colors.primary}
+      selectionColor={theme.colors.secondary}
       underlineColor="transparent"
-      // mode="outlined"
+      mode="flat"
       theme={{roundness: 40}}
       {...props}
     />
@@ -30,14 +30,15 @@ const styles = StyleSheet.create({
     
   },
   input: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: 'transparent',
     overflow: 'hidden',
     borderRadius: 40,
     borderStyle: 'solid',
     borderColor: '#CCF2F4',
     borderWidth: 1,
-    fontSize: 20,
-    paddingLeft: 30
+    fontSize: 16,
+    paddingLeft: 30,
+   
   },
   error: {
     fontSize: 14,
