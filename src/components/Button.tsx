@@ -12,6 +12,7 @@ const Button = ({ mode, style, children, ...props }: Props) => (
       mode === 'outlined' && { backgroundColor: theme.colors.surface },
       style,
     ]}
+    uppercase={false}
     labelStyle={styles.text}
     mode={mode}
     {...props}
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
   },
   text: {
     // fontWeight: 'bold',
-    fontSize: 24,
+    fontSize: 16,
     lineHeight: 28,
   },
 });
