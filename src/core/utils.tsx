@@ -20,7 +20,7 @@ export const confpasswordValidator = (password: string, confpassword: string) =>
 }
 
 export const nameValidator = (name: string) => {
-  if (!name || name.length <= 0) return 'Name cannot be empty.';
+  if (!name || name.length <= 0) return 'cannot be empty.';
 
   return '';
 };

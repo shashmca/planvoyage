@@ -1,5 +1,7 @@
 import React, { memo, useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
@@ -7,7 +9,7 @@ import Button from '../components/Button';
 import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
 import { theme } from '../core/theme';
-import { emailValidator, passwordValidator } from '../core/utils';
+import { nameValidator, passwordValidator } from '../core/utils';
 import { Navigation } from '../types';
 
 type Props = {
@@ -19,7 +21,7 @@ const LoginScreen = ({ navigation }: Props) => {
   const [password, setPassword] = useState({ value: '', error: '' });
 
   const _onLoginPressed = () => {
-    const emailError = emailValidator(email.value);
+    const emailError = nameValidator(email.value);
     const passwordError = passwordValidator(password.value);
 
     if (emailError || passwordError) {
@@ -32,7 +34,13 @@ const LoginScreen = ({ navigation }: Props) => {
   };
 
   return (
-    <Background>
+    <KeyboardAwareScrollView
+      // style={styles.container}
+      resetScrollToCoords={{ x: 0, y: 0 }}
+      contentContainerStyle={styles.container}
+      scrollEnabled={false}
+    >
+    {/* // <Background> */}
       <BackButton goBack={() => navigation.navigate('HomeScreen')} />
 
       <Logo />
@@ -87,7 +95,8 @@ const LoginScreen = ({ navigation }: Props) => {
           <Text style={styles.link}>sign up</Text>
         </TouchableOpacity>
       </View>
-    </Background>
+    {/* // </Background> */}
+    </KeyboardAwareScrollView>
   );
 };
 
@@ -125,7 +134,16 @@ const styles = StyleSheet.create({
     top: 30,
     left: 15,
     zIndex: 2
-  }
+  },
+  container: {
+    flex: 1,
+    padding: 20,
+    width: '100%',
+    maxWidth: 420,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default memo(LoginScreen);
