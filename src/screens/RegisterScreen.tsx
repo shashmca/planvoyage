@@ -66,12 +66,12 @@ const RegisterScreen = ({ navigation }: Props) => {
 
       <Logo />
 
-      <Header>Create Account</Header>
+      <Header>Sign Up</Header>
       
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/user.png')} />
       <TextInput
-        label="Name"
+        label="Enter Your Name"
         returnKeyType="next"
         value={name.value}
         onChangeText={text => setName({ value: text, error: '' })}
@@ -83,7 +83,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/email.png')} />
       <TextInput
-        label="Email"
+        label="Email Address"
         returnKeyType="next"
         value={email.value}
         onChangeText={text => setEmail({ value: text, error: '' })}
@@ -99,7 +99,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/phone.png')} />
       <TextInput
-        label="MobileNumber"
+        label="Mobile No."
         returnKeyType="next"
         value={mobilenumber.value}
         onChangeText={text => setMobileNumber({ value: text, error: '' })}
@@ -111,7 +111,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/company.png')} />
       <TextInput
-        label="CompanyName"
+        label="Company Name (If Any)"
         returnKeyType="next"
         value={companyname.value}
         onChangeText={text => setCompanyName({ value: text, error: '' })}
@@ -124,7 +124,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/lock.png')} />
       <TextInput
-        label="Password"
+        label="Enter Password"
         returnKeyType="done"
         value={password.value}
         onChangeText={text => setPassword({ value: text, error: '' })}
@@ -137,7 +137,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/confirm.png')} />
       <TextInput
-        label="Confirm Password"
+        label="Re-Enter Password"
         returnKeyType="done"
         value={confpassword.value}
         onChangeText={text => setConfPassword({ value: text, error: '' })}
@@ -154,7 +154,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       <View style={styles.row}>
         <Text style={styles.label}>Already have an account? </Text>
         <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-          <Text style={styles.link}>Login</Text>
+          <Text style={styles.link}>Sign In</Text>
         </TouchableOpacity>
       </View>
     {/* </Background> */}
@@ -164,31 +164,31 @@ const RegisterScreen = ({ navigation }: Props) => {
 
 const styles = StyleSheet.create({
   label: {
-    color: theme.colors.secondary,
+    color: theme.colors.primary,
   },
   button: {
     marginTop: 24,
   },
   row: {
     flexDirection: 'row',
-    marginTop: 4,
+    marginTop: 20,
   },
   link: {
     fontWeight: 'bold',
-    color: theme.colors.primary,
+    color: theme.colors.secondary,
   },
   container: {
     flex: 1,
     padding: 20,
     width: '100%',
-    maxWidth: 340,
+    maxWidth: 420,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
   },
   content: {
     width: '100%',
-    maxWidth: 340
+    maxWidth: 420
   },
   image: {
     width: 20,

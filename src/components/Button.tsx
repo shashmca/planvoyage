@@ -22,13 +22,15 @@ const Button = ({ mode, style, children, ...props }: Props) => (
 
 const styles = StyleSheet.create({
   button: {
-    width: '100%',
+    width: '50%',
     marginVertical: 10,
+    backgroundColor: '#004aad',
+    borderRadius: 40
   },
   text: {
-    fontWeight: 'bold',
-    fontSize: 15,
-    lineHeight: 26,
+    // fontWeight: 'bold',
+    fontSize: 24,
+    lineHeight: 28,
   },
 });
 

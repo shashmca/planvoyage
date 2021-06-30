@@ -41,7 +41,7 @@ const LoginScreen = ({ navigation }: Props) => {
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/user.png')} />
       <TextInput
-        label="Email"
+        label="User Name/Mobile"
         returnKeyType="next"
         value={email.value}
         onChangeText={text => setEmail({ value: text, error: '' })}
@@ -58,7 +58,7 @@ const LoginScreen = ({ navigation }: Props) => {
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/lock.png')} />
       <TextInput
-        label="Password"
+        label="Enter Password"
         returnKeyType="done"
         value={password.value}
         onChangeText={text => setPassword({ value: text, error: '' })}
@@ -73,7 +73,7 @@ const LoginScreen = ({ navigation }: Props) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('ForgotPasswordScreen')}
         >
-          <Text style={styles.label}>Forgot your password?</Text>
+          <Text style={styles.lebelForgot}>Forgot password ?</Text>
         </TouchableOpacity>
       </View>
 
@@ -82,9 +82,9 @@ const LoginScreen = ({ navigation }: Props) => {
       </Button>
 
       <View style={styles.row}>
-        <Text style={styles.label}>Don’t have an account? </Text>
+        <Text style={styles.label}>Don’t you have account </Text>
         <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
-          <Text style={styles.link}>Sign up</Text>
+          <Text style={styles.link}>sign up</Text>
         </TouchableOpacity>
       </View>
     </Background>
@@ -94,26 +94,29 @@ const LoginScreen = ({ navigation }: Props) => {
 const styles = StyleSheet.create({
   forgotPassword: {
     width: '100%',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     marginBottom: 24,
   },
   row: {
     flexDirection: 'row',
-    marginTop: 4,
+    marginTop : 25,
+  },
+  lebelForgot: {
+    color: theme.colors.secondary,
   },
   label: {
-    color: theme.colors.secondary,
+    color: theme.colors.primary,
   },
   link: {
     fontWeight: 'bold',
-    color: theme.colors.primary,
+    color: theme.colors.secondary,
   },
   textBox: {
     borderRadius: 24
   },
   content: {
     width: '100%',
-    maxWidth: 340
+    maxWidth: 420
   },
   image: {
     width: 20,
