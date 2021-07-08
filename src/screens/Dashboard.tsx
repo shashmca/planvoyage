@@ -10,18 +10,18 @@ type Props = {
   navigation: Navigation;
 };
 
-const Dashboard = ({ navigation }: Props) => (
-  <Background>
-    <Logo />
-    <Header>Let’s start</Header>
-    <Paragraph>
-      Your amazing app starts here. Open you favourite code editor and start
-      editing this project.
-    </Paragraph>
-    <Button mode="outlined" onPress={() => navigation.navigate('HomeScreen')}>
-      Logout
-    </Button>
-  </Background>
-);
+const Dashboard = ({ navigation }: Props) => {
+
+  navigation.navigate('');
+
+  
+
+  {/* <Background> */}
+    
+  {/* </Background> */}
+
+};
+
+  
 
 export default memo(Dashboard);

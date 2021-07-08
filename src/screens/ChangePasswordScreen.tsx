@@ -9,28 +9,30 @@ import Button from '../components/Button';
 import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
 import { theme } from '../core/theme';
-import { nameValidator, passwordValidator } from '../core/utils';
+import { passwordValidator } from '../core/utils';
 import { Navigation } from '../types';
 
 type Props = {
   navigation: Navigation;
 };
 
-const LoginScreen = ({ navigation }: Props) => {
-  const [email, setEmail] = useState({ value: '', error: '' });
+const ChangePasswordScreen = ({ navigation }: Props) => {
   const [password, setPassword] = useState({ value: '', error: '' });
+  const [confnewpassword, setConfnewpassword] = useState({ value: '', error: '' });
+
 
   const _onLoginPressed = () => {
-    const emailError = nameValidator(email.value);
     const passwordError = passwordValidator(password.value);
+    const confnewpasswordError = ConfnewpasswordValidator(confnewpassword.value);
 
-    if (emailError || passwordError) {
-      setEmail({ ...email, error: emailError });
+
+    if (passwordError || confnewpasswordError) {
       setPassword({ ...password, error: passwordError });
+      setConfnewpassword({ ...confnewpassword, error: confnewpasswordError });
       return;
     }
 
-    navigation.navigate('Onetimepassword');
+    navigation.navigate('LoginScreen');
   };
 
   return (
@@ -41,23 +43,23 @@ const LoginScreen = ({ navigation }: Props) => {
       scrollEnabled={false}
     >
     {/* // <Background> */}
-      <BackButton goBack={() => navigation.navigate('HomeScreen')} />
+      <BackButton goBack={() => navigation.navigate('RegisterScreen')} />
 
       <Logo />
 
-      <Header>Sign In</Header>
+      <Header>Change Password</Header>
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/user.png')} />
       <TextInput
-        label="User Name/Mobile"
+        label="Enter New Password"
         returnKeyType="next"
-        value={email.value}
-        onChangeText={text => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
+        value={password.value}
+        onChangeText={text => setPassword({ value: text, error: '' })}
+        error={!!password.error}
+        errorText={password.error}
         autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
+        autoCompleteType="password"
+        textContentType="password"
         keyboardType="email-address"
       />
       </View>
@@ -66,33 +68,27 @@ const LoginScreen = ({ navigation }: Props) => {
       <View style= {styles.content}>
       <Image style={styles.image} source={require('../assets/lock.png')} />
       <TextInput
-        label="Enter Password"
+        label="Confirm New Password"
         returnKeyType="done"
-        value={password.value}
-        onChangeText={text => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
+        value={confnewpassword.value}
+        onChangeText={text => setConfnewpassword({ value: text, error: '' })}
+        error={!!confnewpassword.error}
+        errorText={confnewpassword.error}
         secureTextEntry
         // style={styles.textBox}
       />
       </View>
 
-      <View style={styles.forgotPassword}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('ForgotPasswordScreen')}
-        >
-          <Text style={styles.lebelForgot}>Forgot password ?</Text>
-        </TouchableOpacity>
-      </View>
+      
 
       <Button mode="contained" onPress={_onLoginPressed}>
-        Sign in
+        Reset
       </Button>
 
-      <View style={styles.row}>
-        <Text style={styles.label}>Don’t you have account </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
-          <Text style={styles.link}>sign up</Text>
+     <View style={styles.row}>
+        
+        <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+          
         </TouchableOpacity>
       </View>
     {/* // </Background> */}
@@ -146,4 +142,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default memo(LoginScreen);
+export default memo(ChangePasswordScreen);

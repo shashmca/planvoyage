@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { ChangePasswordScreen } from '../screens/ChangePasswordScreen';
 
 // import Background from '../components/Background';
 import Logo from '../components/Logo';
@@ -17,6 +18,7 @@ import {
   nameValidator,
   mobilenumberValidator,
   companynameValidator,
+
 } from '../core/utils';
 
 type Props = {
@@ -39,19 +41,19 @@ const RegisterScreen = ({ navigation }: Props) => {
 
     const nameError = nameValidator(name.value);
     const emailError = emailValidator(email.value);
-    const mobilenumber = mobilenumberValidator(mobilenumber.value);
-    const companyname = companynameValidator(companyname.value);
+    // const mobilenumber = mobilenumberValidator(mobilenumber.value);
+    // const companyname = companynameValidator(companyname.value);
     if (emailError || passwordError || confpasswordError || nameError) {
       setName({ ...name, error: nameError });
       setEmail({ ...email, error: emailError });
-      setMobileNumber({ ...mobilenumber, error: mobilenumberError });
-      setCompanyName({ ...companyname, error: companynameError });
+      // setMobileNumber({ ...mobilenumber, error: mobilenumberError });
+      // setCompanyName({ ...companyname, error: companynameError });
       setPassword({ ...password, error: passwordError });
       setConfPassword({ ...confpassword, error: confpasswordError})
       return;
     }
 
-    navigation.navigate('Dashboard');
+    navigation.navigate('SelectEventType');
    };
 
   return (
@@ -145,6 +147,14 @@ const RegisterScreen = ({ navigation }: Props) => {
         errorText={confpassword.error}
         secureTextEntry
       />
+      </View>
+
+      <View style={styles.row}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ChangePasswordScreen')}
+        >
+          <Text style={styles.link}>change password ?</Text>
+        </TouchableOpacity>
       </View>
 
       <Button mode="contained" onPress={_onSignUpPressed} style={styles.button}>
