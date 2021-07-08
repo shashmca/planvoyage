@@ -1,5 +1,6 @@
 import React, { memo, useState } from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { emailValidator } from '../core/utils';
 import Background from '../components/Background';
 import BackButton from '../components/BackButton';
@@ -29,15 +30,21 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
   };
 
   return (
-    <Background>
+    <KeyboardAwareScrollView
+      // style={styles.container}
+      resetScrollToCoords={{ x: 0, y: 0 }}
+      contentContainerStyle={styles.container}
+      scrollEnabled={false}
+    >
+    {/* <Background> */}
       <BackButton goBack={() => navigation.navigate('LoginScreen')} />
 
       <Logo />
 
-      <Header>Restore Password</Header>
+      <Header>Forget Password</Header>
 
       <TextInput
-        label="E-mail address"
+        label="E-mail id/Phone Number"
         returnKeyType="done"
         value={email.value}
         onChangeText={text => setEmail({ value: text, error: '' })}
@@ -46,20 +53,20 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
         autoCapitalize="none"
         autoCompleteType="email"
         textContentType="emailAddress"
-        keyboardType="email-address"
-      />
+        keyboardType="email-address"/>
 
       <Button mode="contained" onPress={_onSendPressed} style={styles.button}>
-        Send Reset Instructions
+        Send 
       </Button>
 
       <TouchableOpacity
         style={styles.back}
         onPress={() => navigation.navigate('LoginScreen')}
       >
-        <Text style={styles.label}>← Back to login</Text>
+        {/* <Text style={styles.label}>← Back to login</Text> */}
       </TouchableOpacity>
-    </Background>
+    {/* </Background> */}
+    </KeyboardAwareScrollView>
   );
 };
 
@@ -75,6 +82,19 @@ const styles = StyleSheet.create({
     color: theme.colors.secondary,
     width: '100%',
   },
+  content: {
+    width: '100%',
+    maxWidth: 420
+  },
+  container: {
+    flex: 1,
+    padding: 20,
+    width: '100%',
+    maxWidth: 420,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
 
 export default memo(ForgotPasswordScreen);

@@ -17,7 +17,12 @@ export const confpasswordValidator = (password: string, confpassword: string) =>
   if (password !== confpassword || confpassword.length === 0) return 'Password and Confirm passwords should be same.';
 
   return '';
-}
+};
+export const confnewpasswordValidator = (password: string, confnewpassword: string) => {
+  if (password !== confnewpassword || confnewpassword.length === 0) return 'Password and Confirm new passwords should be same.';
+
+  return '';
+};
 
 export const nameValidator = (name: string) => {
   if (!name || name.length <= 0) return 'cannot be empty.';

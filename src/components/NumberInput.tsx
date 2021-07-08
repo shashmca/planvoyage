@@ -5,11 +5,12 @@ import { theme } from '../core/theme';
 
 type Props = React.ComponentProps<typeof Input> & { errorText?: string };
 
-const TextInput = ({ errorText, ...props }: Props) => (
+const NumberInput = ({ errorText, ...props }: Props) => (
   <View style={styles.container}>
     <Input
       style={styles.input}
       selectionColor={theme.colors.secondary}
+      keyboardType='numeric'
       underlineColor="transparent"
       mode="flat"
       theme={{roundness: 40}}
@@ -21,23 +22,24 @@ const TextInput = ({ errorText, ...props }: Props) => (
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: '20%',
     marginVertical: 5,
     display: 'flex',
     justifyContent: 'center',
-    // alignItems: 'center'
+     alignItems: 'flex-start',
+    //  flexDirection: 'row'
     
   },
   input: {
     backgroundColor: 'transparent',
     overflow: 'hidden',
-    borderRadius: 40,
     borderStyle: 'solid',
     borderColor: '#CCF2F4',
-    borderWidth: 1,
+    // borderWidth: 1,
+    borderBottomWidth: 1,
     fontSize: 16,
     paddingLeft: 30,
-    
+   
   },
   error: {
     fontSize: 14,
@@ -55,4 +57,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default memo(TextInput);
+export default memo(NumberInput);
