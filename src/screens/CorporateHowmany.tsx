@@ -25,8 +25,8 @@ const CorporateHowmany = ({navigation}: Props) => {
   
   const [checked, setChecked] = useState('No')
   return (
-    <KeyboardAwareScrollView style={{minHeight:'100vh'}}>
-     {/* <Background >  */}
+    <KeyboardAwareScrollView>
+     <View style={{minHeight: '100vh'}}>
     
    <GlobalHeader/>
     <View>
@@ -104,7 +104,7 @@ const CorporateHowmany = ({navigation}: Props) => {
 
       <GlobalFooter/>
 
-     {/* </Background>  */}
+     </View>
      </KeyboardAwareScrollView>
     
   )
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     maxWidth: 420,
     margin:'auto',
     flexDirection:'row',
-    border:1,
+    borderWidth:1,
     borderRadius:10,
     borderColor:theme.colors.secondary
     

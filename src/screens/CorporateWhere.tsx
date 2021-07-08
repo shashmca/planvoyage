@@ -24,7 +24,7 @@ const CorporateWhere = ({navigation}: Props) => {
   
   return (
     <KeyboardAwareScrollView style={{minHeight:'100vh'}}>
-     {/* <Background >  */}
+    <View style={{minHeight: '100vh'}}>
     
    <GlobalHeader/>
     <View>
@@ -95,7 +95,7 @@ const CorporateWhere = ({navigation}: Props) => {
 
       <GlobalFooter/>
 
-     {/* </Background>  */}
+     </View>
      </KeyboardAwareScrollView>
     
   )
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   progressboxtext:{
     fontWeight:'bold',
     fontSize:10,
-    color: theme.color,
+    color: theme.colors.primary,
     textAlignVertical:'bottom',
     position:'absolute',
     left:'30%',

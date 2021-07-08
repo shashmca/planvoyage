@@ -36,12 +36,7 @@ const styles = StyleSheet.create({
     borderColor: '#CCF2F4',
     borderWidth: 1,
     fontSize: 16,
-<<<<<<< HEAD
     paddingLeft: 30
-=======
-    paddingLeft: 30,
-    
->>>>>>> c3bac780b0faf0a1c7fcb37bb965ac3b50a7586d
   },
   error: {
     fontSize: 14,

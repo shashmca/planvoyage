@@ -71,7 +71,7 @@ const SelectEventType = ({ navigation }: Props) => {
       progressboxtext:{
         fontWeight:'bold',
         fontSize:10,
-        color: theme,
+        color: theme.colors.primary,
         textAlignVertical:'bottom',
         position:'absolute',
         left:'30%',
