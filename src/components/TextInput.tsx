@@ -11,6 +11,7 @@ const TextInput = ({ errorText, ...props }: Props) => (
       style={styles.input}
       selectionColor={theme.colors.secondary}
       underlineColor="transparent"
+      underlineColorAndroid="transparent"
       mode="flat"
       theme={{roundness: 40}}
       {...props}

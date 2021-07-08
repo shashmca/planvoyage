@@ -8,7 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-native-community/datetimepicker": "^3.5.2",
+    "@react-native-community/datetimepicker": "3.2.0",
     "expo": "^41.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -17,6 +17,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.4",
     "react-native-paper": "^3.0.0",
     "react-native-range-slider": "^0.1.2",
+    "react-native-range-slider-expo": "^1.4.0",
     "react-native-screens": "~3.0.0",
     "react-native-status-bar-height": "^2.4.0",
     "react-native-vector-icons": "^8.1.0",

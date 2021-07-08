@@ -24,8 +24,8 @@ type Props = {
 
 const CorporateWhen = ({ navigation }: Props) => {
   return (
-    <KeyboardAwareScrollView style={{ minHeight: '100vh' }}>
-      <View style={{ minHeight: '100vh' }}>
+    <KeyboardAwareScrollView >
+      <View style={{ minHeight: '80%' }}>
         <GlobalHeader />
         <View>
           <ProgressBar
@@ -105,7 +105,7 @@ const CorporateWhen = ({ navigation }: Props) => {
 
         <Text style={styles.title}>Dates of Program</Text>
 
-        <Calender/>
+        <Calender />
         <View
           style={{
             display: 'flex',
@@ -116,21 +116,21 @@ const CorporateWhen = ({ navigation }: Props) => {
         >
           <View style={{ width: 'auto', flexDirection: 'row' }}>
             {/* <View style={{justifyContent: 'center'}}> */}
-              <Button
-                onPress={() => navigation.navigate('SelectEventtype')}
-                mode="contained"
-                style={styles.button}
-              >
-                {' '}
-                BACK{' '}
-              </Button>
-              <Button
-                mode="contained"
-                style={styles.button}
-                onPress={() => navigation.navigate('CorporateWhere')}
-              >
-                NEXT
-              </Button>
+            <Button
+              onPress={() => navigation.navigate('SelectEventtype')}
+              mode="contained"
+              style={styles.button}
+            >
+              {' '}
+              BACK{' '}
+            </Button>
+            <Button
+              mode="contained"
+              style={styles.button}
+              onPress={() => navigation.navigate('CorporateWhere')}
+            >
+              NEXT
+            </Button>
             {/* </View> */}
           </View>
         </View>

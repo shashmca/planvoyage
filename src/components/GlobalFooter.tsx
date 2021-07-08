@@ -3,6 +3,7 @@ import { StyleSheet, View, Image,Text } from 'react-native';
 import { theme } from '../core/theme';
 import { Navigation } from '../types';
 import { Appbar } from 'react-native-paper';
+import Icon from 'react-native-vector-icons/FontAwesome';
 type Props = {
   navigation: Navigation;
 };  
@@ -11,7 +12,7 @@ const GlobalFooter = ({ navigation }: Props) => {
 
   return (
     <View >
-      <Appbar  style={styles.bottom}>
+      <Appbar style={styles.bottom}>
         <Appbar.Content 
             title={<Image style={styles.image} source={require('../assets/home.png')} />}
         />

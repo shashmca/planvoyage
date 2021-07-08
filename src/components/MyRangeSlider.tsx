@@ -1,25 +1,50 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { memo } from 'react';
-import {View, Button, Platform} from 'react-native';
-import RangeSlider from 'react-native-range-slider'
+import { View, Button, Platform, StyleSheet, Text } from 'react-native';
+import RangeSlider, { Slider } from 'react-native-range-slider-expo';
 
-export const RangeSlider = () => {
-
-    return (
-
-    <View style={{flex: 1, flexDirection: 'row'}}>
-  <RangeSlider
-    minValue={0}
-    maxValue={100}
-    tintColor={'#da0f22'}
-    handleBorderWidth={1}
-    handleBorderColor="#454d55"
-    selectedMinimum={20}
-    selectedMaximum={40}
-    style={{ flex: 1, height: 70, padding: 10, backgroundColor: '#ddd' }}
-    onChange={ (data)=>{ console.log(data);} }
-  />
-</View>
-    );
+export const CustomRangeSlider = () => {
+  const [fromValue, setFromValue] = useState(0);
+  const [toValue, setToValue] = useState(0);
+  const [value, setValue] = useState(0);
+  return (
+    <View style={styles.container}>
+      <View>
+        <RangeSlider
+          min={5}
+          max={25}
+          fromValueOnChange={value => setFromValue(value)}
+          toValueOnChange={value => setToValue(value)}
+          initialFromValue={11}
+        />
+        <Text>from value: {fromValue}</Text>
+        <Text>to value: {toValue}</Text>
+      </View>
+      <View>
+        <Slider
+          min={0}
+          max={40}
+          step={4}
+          valueOnChange={value => setValue(value)}
+          initialValue={12}
+          knobColor="red"
+          valueLabelsBackgroundColor="black"
+          inRangeBarColor="purple"
+          outOfRangeBarColor="orange"
+        />
+        <Text>value: {value}</Text>
+      </View>
+    </View>
+  );
 };
-export default memo(RangeSlider);
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    marginVertical: 5,
+    display: 'flex',
+    justifyContent: 'center',
+    // alignItems: 'center'
+    
+  }
+})
+export default memo(CustomRangeSlider);
